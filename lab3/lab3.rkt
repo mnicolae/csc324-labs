@@ -59,12 +59,12 @@
 (define const 10)
 (define (let-ex-4 y)
   (lambda (z) (+ y (- z const))))
-; (check-expect
-;    (let ([const 1]
-;          [y 2]
-;          [z 3])
-;      ((let-ex-4 1) 5))
-;    ???)
+ (check-expect
+    (let ([const 1]
+          [y 2]
+          [z 3])
+      ((let-ex-4 1) 5))
+    -4)
   
 
 (test)
