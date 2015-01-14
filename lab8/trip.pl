@@ -49,6 +49,8 @@ tour(A, B, [PL1, PL2|PL]) :- trip(A, PL1), trip(PL1, PL2), tour(PL2, B, PL).
 
 % short_trip(A, B, N) -- there is a trip from A to B that goes
 % through at most N places.
-short_trip(A, B, 0) :- trip(A, B).
-% TODO: add recursive step
+short_trip(A, B, X) :- X > 0, boat(A, B).
+short_trip(A, B, X) :- X > 0, plane(A, B).
+short_trip(A, B, N) :- M is N - 1, boat(A, Z), short_trip(Z, B, M).
+short_trip(A, B, N) :- M is N - 1, plane(A, Z), short_trip(Z, B, M).
 
